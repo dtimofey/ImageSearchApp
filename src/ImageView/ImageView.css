@@ -37,4 +37,5 @@
   background: transparent;
   border: solid 2px #34495e;
   margin-top: 10px;
+  transition-duration: .2s;
 }

@@ -20,9 +20,11 @@ class App extends React.Component {
     const url = `https://pixabay.com/api/?key=${API_KEY}&q=${searchTerm}&image_type=photo`
     const request = await fetch(url)
     const response = await request.json()
-    this.setState({ images: response.hits })
-    console.log(searchTerm)
-    console.log(this.state.images)
+    if (!searchTerm) {
+      this.setState({error: 'Input value for result'})
+    } else {
+      this.setState({ images: response.hits, error: null })
+    }
   }
   
   render() {
@@ -30,7 +32,11 @@ class App extends React.Component {
       <div>
         <ImageSearch handleGetRequest={this.handleGetRequest}/>
         {
-
+          this.state.error !== null ?
+          <div style={{color: '#fff', textAlign: 'center'}}>
+            {this.state.error}
+          </div> :
+          <ImageList images={this.state.images}/>
         }
       </div>
     )

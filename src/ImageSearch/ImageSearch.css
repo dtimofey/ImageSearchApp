@@ -30,5 +30,13 @@
   top: 4px;
   background: transparent;
   border: solid 2px #34495e;
-  color: #fff;
+  color: #53A775;
+  cursor: pointer;
+  transition-duration: .2s;
+}
+
+.imageSearch__form button:hover {
+  color: #34495e;
+  border: solid 2px #53A775;
+
 }
